@@ -9,14 +9,16 @@ public class Player : MonoBehaviour
     
     private const string Horizontal = nameof(Horizontal);
     private Rigidbody2D _rigidbody2D; 
-    private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private Vector3 _direction;
+    private bool _isFacingLeft;
+    private bool _isFacingRight = true;
+    
+    public bool IsFacingLeft { get { return _isFacingLeft; } set { _isFacingLeft = value; } }
     
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _spriteRenderer  = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
     }
     
@@ -24,10 +26,9 @@ public class Player : MonoBehaviour
     {
         if (IsGrounded()) State = States.Idle;
         
-        СhooseAnimation();
-        
         Move();
         Jump();
+        ChooseTurn();
     }
     
     private void Move()
@@ -35,13 +36,13 @@ public class Player : MonoBehaviour
         if (Input.GetButton(Horizontal))
         {
             if (IsGrounded()) State = States.Run;
+           
             Vector3 direction = transform.right * Input.GetAxis(Horizontal);
+           
+            _direction = direction;
             
             transform.position = Vector3.MoveTowards(transform.position, transform.position + direction,
                 speed * Time.deltaTime);
-            
-            _spriteRenderer.flipX =  direction.x < 0.0f;
-            
         }
     }
     
@@ -61,14 +62,36 @@ public class Player : MonoBehaviour
     }
     
     /*
-     * Метод выбора анимации между бегом и состоянием покоя
-     * @param _direction.x
-     * @return анимация
+     * Метод выбора поворота игрока
+     * @param _direction.x _isFacingRight
+     * @return выбор стороны поворота
      */
-    private void СhooseAnimation()
+    private void ChooseTurn()
     {
-        
-        //_animator.SetBool("isJump", IsGrounded());
+        if (!_isFacingRight && _direction.x > 0f)
+        {
+            IsFacingLeft = false;
+            Flip();
+        }
+        else if (_isFacingRight && _direction.x < 0f)
+        {
+            IsFacingLeft = true;
+            Flip();
+        }
+    }
+    
+    /*
+     * Метод поворота по направления движения игрока
+     * @param вектор localScale для изменения поворота игрока
+     * @return  transform.localScale
+     */
+
+    private void Flip()
+    {
+        _isFacingRight = !_isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
     
     /*
@@ -90,6 +113,5 @@ public class Player : MonoBehaviour
     {
         Idle,// 0
         Run,// 1
-        Jump// 2
     }
 }
