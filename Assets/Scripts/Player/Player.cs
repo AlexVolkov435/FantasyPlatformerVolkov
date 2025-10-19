@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     private bool _isFacingLeft;
     private bool _isFacingRight = true;
     
+    private int _layerPlatform = 10;
+    private int _layerPlayer = 7;
+    
     public bool IsFacingLeft { get { return _isFacingLeft; } set { _isFacingLeft = value; } }
     
     private void Awake()
@@ -29,6 +32,11 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
+        if (Input.GetKey(KeyCode.S))
+        {
+            GoDownPlatform();
+        }
+        
         textHP.text = $"{_playerHealthSystem.MaxHealth}/{_playerHealthSystem.CurrentHealth}";
         
         if (IsGrounded()) State = States.Idle;
@@ -117,7 +125,30 @@ public class Player : MonoBehaviour
         set { _animator.SetInteger("State", (int)value); }
     }
     
-    public enum States
+    /*
+     * Метод прохождение платформы насквозь
+     * @param ссылка из PlayerInputReader()
+     * @return  игнороируем слои платформы и игрока, чтобы пройти сквозь платформу
+     */
+    public void GoDownPlatform()
+    {
+        float pause = 0.5f;
+
+        Physics2D.IgnoreLayerCollision(_layerPlatform, _layerPlayer, true);
+        Invoke(nameof(IgnoreLayerOff), pause);// чтобы успеть пройти сквозь платформу
+    }
+
+    /*
+     * Метод выключения игнорирования слоёв
+     * @param ссылка из GoDownPlatform()
+     * @return выключаем игнорирование слоев
+     */
+    private void IgnoreLayerOff()
+    {
+        Physics2D.IgnoreLayerCollision(_layerPlatform, _layerPlayer, false);
+    }
+    
+    private enum States
     {
         Idle,// 0
         Run,// 1
