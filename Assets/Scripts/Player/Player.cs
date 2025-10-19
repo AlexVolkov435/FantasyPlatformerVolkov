@@ -1,4 +1,4 @@
-using System;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -6,11 +6,15 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed =  3f;
     [SerializeField] private float jumpForce =  8f;
     [SerializeField] private LayerCheck layerCheck;
+    [SerializeField] private TextMeshProUGUI textHP;
     
     private const string Horizontal = nameof(Horizontal);
+    
     private Rigidbody2D _rigidbody2D; 
     private Animator _animator;
     private Vector3 _direction;
+    private PlayerHealthSystem _playerHealthSystem;
+    
     private bool _isFacingLeft;
     private bool _isFacingRight = true;
     
@@ -20,10 +24,13 @@ public class Player : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _playerHealthSystem = GetComponent<PlayerHealthSystem>();
     }
     
     private void Update()
     {
+        textHP.text = $"{_playerHealthSystem.MaxHealth}/{_playerHealthSystem.CurrentHealth}";
+        
         if (IsGrounded()) State = States.Idle;
         
         Move();
@@ -58,6 +65,7 @@ public class Player : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
            
         }
+        
         _animator.SetBool("isJump", IsGrounded());
     }
     

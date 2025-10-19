@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7469430452436647765}
   - component: {fileID: 4551398501003916727}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Melee Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,8 +49,8 @@ MonoBehaviour:
   attackPoint: {fileID: 7469430452436647765}
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
-  player: {fileID: 7217144434653543369}
+    m_Bits: 320
+  isPlayer: 1
 --- !u!1 &3731691311951743034
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 4771737694061627883}
   - component: {fileID: 6439635217414907733}
   - component: {fileID: 1716736765706730558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,9 +150,9 @@ GameObject:
   - component: {fileID: 5791261431453192883}
   - component: {fileID: 3615424187205574714}
   - component: {fileID: 553446527459452055}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 75e4b9cf0ccc9d54c841aa0627c2545a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -258,7 +258,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07956648, y: -0.10903537}
+  m_Offset: {x: -0.07956648, y: -0.09072417}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -269,7 +269,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8393097, y: 1.0279112}
+  m_Size: {x: 0.8393097, y: 0.9912888}
   m_EdgeRadius: 0
 --- !u!50 &7079349582013792522
 Rigidbody2D:
@@ -313,6 +313,7 @@ MonoBehaviour:
   speed: 3
   jumpForce: 8
   layerCheck: {fileID: 1716736765706730558}
+  textHP: {fileID: 0}
 --- !u!95 &3615424187205574714
 Animator:
   serializedVersion: 5
@@ -348,4 +349,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 100
+  slider: {fileID: 0}
   reloadLevelComponent: {fileID: 0}

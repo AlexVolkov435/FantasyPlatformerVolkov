@@ -3,21 +3,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Animator _animator;
-    private EnemyHealthSystem _enemyHealthSystem;
     private GameObject _currentPlayer;
     
     public bool IsFacingRight { get; private set; }
     
-    
-    /*
-     * Инициализыция переменной _animator
-     */
-    private void Awake()
-    {
-        _enemyHealthSystem = GetComponent<EnemyHealthSystem>();
-        _animator = GetComponent<Animator>();
-    }
     
     private void Start()
     {

@@ -8,7 +8,7 @@ public abstract class HealthSystem : MonoBehaviour
 {
     [SerializeField] public float _maxHealth;
     [SerializeField] public float _currentHealth;
-
+    
     /**
      * Инициализация здоровья при старте.
      * Устанавливает текущее здоровье равным максимальному.

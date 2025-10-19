@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 /*
  * Система здоровья для игрока.
@@ -7,15 +8,21 @@ using System.Collections;
  */
 public class PlayerHealthSystem : HealthSystem
 {
+    [SerializeField] private Slider slider;
+    
     public ReloadLevelComponent reloadLevelComponent;
     private Animator _animator;
     
     private string _deathAnimationName = "Death";
    // private DamageRendering _damageRendering;
     
+   public float MaxHealth { get { return _maxHealth; } }
+   public float CurrentHealth { get { return _currentHealth; } }
+   
     private void Awake()
     {
         Initialization();
+        slider.maxValue = _currentHealth;
     }
     
     /*
@@ -42,7 +49,7 @@ public class PlayerHealthSystem : HealthSystem
     private void CalculateDamage(float damage)
     {
         _currentHealth -= damage;
-        
+         slider.value -= damage;
         _animator.SetTrigger("Hit");
         
        // _damageRendering.ShowDamageText(damage);
@@ -65,7 +72,8 @@ public class PlayerHealthSystem : HealthSystem
     public override void Heal(float amount)
     {
         _currentHealth += amount;
-
+        slider.value += amount;
+        
         if (_currentHealth > _maxHealth)
         {
             _currentHealth = _maxHealth;
