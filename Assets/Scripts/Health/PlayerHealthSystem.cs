@@ -14,7 +14,7 @@ public class PlayerHealthSystem : HealthSystem
     private Animator _animator;
     
     private string _deathAnimationName = "Death";
-   // private DamageRendering _damageRendering;
+    private DamageRendering _damageRendering;
     
    public float MaxHealth { get { return _maxHealth; } }
    public float CurrentHealth { get { return _currentHealth; } }
@@ -31,7 +31,7 @@ public class PlayerHealthSystem : HealthSystem
     private void Initialization()
     {
         _animator = GetComponent<Animator>();
-       // _damageRendering = GetComponent<DamageRendering>();
+        _damageRendering = GetComponent<DamageRendering>();
     }
     
     
@@ -52,7 +52,7 @@ public class PlayerHealthSystem : HealthSystem
          slider.value -= damage;
         _animator.SetTrigger("Hit");
         
-       // _damageRendering.ShowDamageText(damage);
+        _damageRendering.ShowDamageText(damage);
      
         Debug.Log($"Player took {damage} damage. Current health: {_currentHealth}");
         

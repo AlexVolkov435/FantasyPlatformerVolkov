@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8841669110135801997}
   - component: {fileID: 7424902698646087299}
   - component: {fileID: 1514468478438052528}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GhostPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1246563237, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

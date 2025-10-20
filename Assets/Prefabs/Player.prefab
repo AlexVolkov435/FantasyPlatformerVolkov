@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1032
   IsTouchingLayer: 0
 --- !u!1 &7217144434653543369
 GameObject:
@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 5791261431453192883}
   - component: {fileID: 3615424187205574714}
   - component: {fileID: 553446527459452055}
+  - component: {fileID: 3946167142689291731}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -351,3 +352,18 @@ MonoBehaviour:
   _currentHealth: 100
   slider: {fileID: 0}
   reloadLevelComponent: {fileID: 0}
+--- !u!114 &3946167142689291731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217144434653543369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade9f05c352a3fc4596d0796a22c58e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTextPrefab: {fileID: 4016153636001311937, guid: 8fd3f632be06d184692a221e932665fd, type: 3}
+  textOffset: {x: 0, y: 0.5}
+  damageDisplayTime: 1

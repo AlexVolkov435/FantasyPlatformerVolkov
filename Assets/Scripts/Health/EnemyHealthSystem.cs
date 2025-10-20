@@ -5,7 +5,7 @@ public class EnemyHealthSystem : HealthSystem
 {
     private Animator _animator;
     private string _deathAnimationName = "Death";
-   // private DamageRendering _damageRendering;
+   private DamageRendering _damageRendering;
     
     public bool isDeath { get; private set; }
     
@@ -20,7 +20,7 @@ public class EnemyHealthSystem : HealthSystem
     private void Initialization()
     {
         _animator = GetComponent<Animator>();
-        //_damageRendering = GetComponent<DamageRendering>();
+        _damageRendering = GetComponent<DamageRendering>();
     }
     
     /*
@@ -38,7 +38,7 @@ public class EnemyHealthSystem : HealthSystem
        _animator.SetTrigger("Hit");
         
         
-       // _damageRendering.ShowDamageText(damage);
+        _damageRendering.ShowDamageText(damage);
         
         Debug.Log($"Enemy took {damage} damage. Current health: {_currentHealth}");
         
