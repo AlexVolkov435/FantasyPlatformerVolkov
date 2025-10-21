@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Portal : MonoBehaviour
@@ -10,15 +11,16 @@ public class Portal : MonoBehaviour
     }
 
     /*
-     * При столкновении с коллизией с компонентом Player открывается меню портала.
+     * При столкновении с триггеромм с компонентом Player открывается меню портала.
      * @param collision
      * @return portal.gameObject.SetActive(true);
      */
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.GetComponent<Player>())
+        if(other.gameObject.GetComponent<Player>())
         {
             portal.gameObject.SetActive(true);
         }
     }
+    
 }

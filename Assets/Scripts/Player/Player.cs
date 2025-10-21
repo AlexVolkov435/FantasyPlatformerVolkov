@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
             GoDownPlatform();
         }
         
-        textHP.text = $"{_playerHealthSystem.MaxHealth}/{_playerHealthSystem.CurrentHealth}";
+        textHP.text = $"{_playerHealthSystem.CurrentHealth}/{_playerHealthSystem.MaxHealth}";
         
         if (IsGrounded()) State = States.Idle;
         

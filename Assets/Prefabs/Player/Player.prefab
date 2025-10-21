@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeWeaponData: {fileID: 11400000, guid: 124a25189d35a43418649bdc361c2c04, type: 2}
-  rangeWeaponDate: {fileID: 11400000, guid: 348a073afb8ea1b46bd24cb2bd60e689, type: 2}
   attackPoint: {fileID: 7469430452436647765}
   layerMask:
     serializedVersion: 2
