@@ -13,7 +13,6 @@ public class FragilePlatform : MonoBehaviour
      * если на объекте есть скрипт Player и если столкновениие произошло сверху платформы, то запускается Корутина
      * @return запуск StartCoroutine
      */
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<Player>(out _))
@@ -33,7 +32,6 @@ public class FragilePlatform : MonoBehaviour
      * Корутина, которая через определенное времяуничтожает объект
      * @return время задержки перед уничтожением объекта и метод Destroy
      */
-
     private IEnumerator Counter()
     {
         var wait = new WaitForSeconds(pause);

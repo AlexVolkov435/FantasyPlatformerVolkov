@@ -12,9 +12,9 @@ public class PlayerHealthSystem : HealthSystem
     
     public ReloadLevelComponent reloadLevelComponent;
     private Animator _animator;
+    private DamageRendering _damageRendering;
     
     private string _deathAnimationName = "Death";
-    private DamageRendering _damageRendering;
     
    public float MaxHealth { get { return _maxHealth; } }
    public float CurrentHealth { get { return _currentHealth; } }
@@ -34,7 +34,6 @@ public class PlayerHealthSystem : HealthSystem
         _damageRendering = GetComponent<DamageRendering>();
     }
     
-    
     /*
     * Метод получения урона без учета статов
     * Уменьшает текущее здоровье на указанное количество урона.
@@ -50,6 +49,7 @@ public class PlayerHealthSystem : HealthSystem
     {
         _currentHealth -= damage;
          slider.value -= damage;
+         
         _animator.SetTrigger("Hit");
         
         _damageRendering.ShowDamageText(damage);
@@ -66,7 +66,6 @@ public class PlayerHealthSystem : HealthSystem
     /*
      * Метод лечения.
      * Увеличивает текущее здоровье на указанное количество, но не выше максимального.
-     *
      * @param amount Количество здоровья, на которое объект будет вылечен.
      */
     public override void Heal(float amount)

@@ -10,7 +10,6 @@ public abstract class WeaponBase : MonoBehaviour
     //Объявляем интерфейсы
     protected IAttackMelee AttackMeleeBehaviour;
     protected IBalisticAttack BalisticAttackBehaviour;
-    protected ISound SoundBehaviour;
     protected IAnimate AnimateBehaviour;
 
     #endregion
@@ -36,17 +35,7 @@ public abstract class WeaponBase : MonoBehaviour
     {
         BalisticAttackBehaviour = balisticAttackBehaviour;
     }
-
-    /*
-    * Инициализация интерфеса ISound
-    * @param интерфейс ISound
-    * @return получаем поведения игрока(helper)
-    */
-    public void SetSoundBehaviour(ISound soundBehaviour)
-    {
-        SoundBehaviour = soundBehaviour;
-    }
-
+    
     /*
     * Инициализация интерфеса IAnimate
     * @param интерфейс IAnimate
@@ -78,16 +67,7 @@ public abstract class WeaponBase : MonoBehaviour
     {
         BalisticAttackBehaviour.BalisticAttack(initialVelocity);
     }
-
-    /*
-    * Реализация метода Sound
-    * @return метод Sound через интерфейс ISound
-    */
-    protected void Sound()
-    {
-        SoundBehaviour.Sound();
-    }
-
+    
     /*
     * Реализация метода Animate
     * @return метод Animate через интерфейс IAnimate

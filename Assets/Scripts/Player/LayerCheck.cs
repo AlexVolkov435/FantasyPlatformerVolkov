@@ -5,11 +5,9 @@ public class LayerCheck : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     
     private Collider2D _collider;
-   
-
-    private bool _playerInSpikeTrigger = false;
-    private bool _isFirstTouch = false;
-
+    
+    private bool _playerInSpikeTrigger;
+    private bool _isFirstTouch;
     public bool IsTouchingLayer;
 
     private void Awake()

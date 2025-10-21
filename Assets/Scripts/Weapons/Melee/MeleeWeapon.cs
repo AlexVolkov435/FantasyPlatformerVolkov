@@ -44,7 +44,7 @@ public class MeleeWeapon : WeaponBase
     /*
      * Обрабатывается нажатие клавиши атаки ПКМ
      * @param пауза между выстрелами
-     * @return вызов метода Attack, время между выстрелами
+     * @return если isPlayer ApplyDamageEnemy, иначе  ApplyDamagePlayer
      */
     private void Update()
     {
@@ -57,7 +57,12 @@ public class MeleeWeapon : WeaponBase
             ApplyDamagePlayer();
         }
     }
-
+    
+    /*
+     * метод нанесения урона по противнику 
+     * @param пауза между выстрелами
+     * @return нанесение урона методом Attack
+     */
     private void ApplyDamageEnemy()
     {
         if (_timer <= 0)
@@ -75,7 +80,12 @@ public class MeleeWeapon : WeaponBase
             _timer -= Time.deltaTime;
         }
     }
-
+    
+    /*
+     * метод нанесения урона по герою
+     * @param пауза между выстрелами
+     * @return нанесение урона методом Attack
+     */
     private void ApplyDamagePlayer()
     {
         if (!_enemyHealthSystem.isDeath)

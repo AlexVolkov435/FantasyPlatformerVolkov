@@ -39,9 +39,13 @@ public class Patrolling : MonoBehaviour
      */
     private void Update()
     {
-        MoveMob();
+        Move();
     }
     
+    /* @param триггер,damage
+     * Инициализирует начальные параметры моба при старте
+     * @return количество урона
+     */ 
     private void  OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -53,10 +57,11 @@ public class Patrolling : MonoBehaviour
         }
     }
     
-    /*
-     * 
-     */
-    private void MoveMob()
+    /* @param transform.position, _targetPosition
+     * Метод передвижения противника
+     * передвижение противника
+     */ 
+    private void Move()
     {
         if (!_healthSystem.isDeath)
         {

@@ -64,6 +64,11 @@ public class Player : MonoBehaviour
         }
     }
     
+    /*
+     * Метод передвижения
+     * @param Horizontal
+     * @return  transform.position
+     */
     private void Move()
     {
         if (Input.GetButton(Horizontal))
@@ -81,8 +86,8 @@ public class Player : MonoBehaviour
     
     /*
      * Метод прыжка игрока
-     * @param 
-     * @return 
+     * @param jumpForce
+     * @return прыжок
      */
     private void Jump()
     {
@@ -118,7 +123,6 @@ public class Player : MonoBehaviour
      * @param вектор localScale для изменения поворота игрока
      * @return  transform.localScale
      */
-
     private void Flip()
     {
         _isFacingRight = !_isFacingRight;
@@ -136,6 +140,10 @@ public class Player : MonoBehaviour
         return layerCheck.IsTouchingLayer;
     }
     
+    /*
+     * Метод передачи значений в аниматор
+     * @return  значения для аниматора
+     */
     private States State
     {
         get { return (States)_animator.GetInteger("State"); }

@@ -51,7 +51,6 @@ public class MeleeCombat : IAttackMelee
                         enemyHealth.TakeDamage(_damage);
                     }
                 }
-                
             }
         }
     }

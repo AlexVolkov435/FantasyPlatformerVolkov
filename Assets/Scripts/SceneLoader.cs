@@ -4,9 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] CoinManager coinManager;
-
-    public string battleSceneName; // Имя сцены боя
+    public string battleSceneName;
 
     /*
      * @return LoadSceneCoroutine
@@ -23,8 +21,7 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator LoadSceneCoroutine()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(battleSceneName);
-
-        // Можно добавить загрузочный экран
+        
         while (!asyncLoad.isDone)
         {
             float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);

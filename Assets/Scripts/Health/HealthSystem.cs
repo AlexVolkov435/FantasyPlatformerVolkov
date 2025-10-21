@@ -1,15 +1,15 @@
 using UnityEngine;
 
-/**
- * Базовая система здоровья, которая может быть унаследована игроком, врагами и разрушаемыми объектами.
- * Позволяет управлять процессом смерти (на данный момент)
+/*
+ * Базовая система здоровья, которая может быть унаследована игроком, врагами.
+ * Позволяет управлять процессом смерти
  */
 public abstract class HealthSystem : MonoBehaviour
 {
     [SerializeField] public float _maxHealth;
     [SerializeField] public float _currentHealth;
     
-    /**
+    /*
      * Инициализация здоровья при старте.
      * Устанавливает текущее здоровье равным максимальному.
      */
@@ -18,7 +18,7 @@ public abstract class HealthSystem : MonoBehaviour
         _currentHealth = _maxHealth;
     }
     
-    /**
+    /*
       * Абстрактный метод получения урона.
       * Уменьшает текущее здоровье на указанное количество урона.
       * Если здоровье падает до 0 или ниже, вызывается метод Die().
@@ -27,7 +27,7 @@ public abstract class HealthSystem : MonoBehaviour
       */
     public abstract void TakeDamage(float damage);
 
-    /**
+    /*
      * Абстрактный метод лечения.
      * Увеличивает текущее здоровье на указанное количество, но не выше максимального.
      *
@@ -35,7 +35,7 @@ public abstract class HealthSystem : MonoBehaviour
      */
     public abstract void Heal(float amount);
 
-    /**
+    /*
     * Абстрактный метод смерти, который должен быть реализован в дочерних классах.
     * Определяет, что происходит, когда объект умирает.
     */

@@ -23,7 +23,6 @@ public class Chest : MonoBehaviour
      * @param проверяется первое касание с объектом на котором есть скрипт Player
      * @return  переменной  _isPlayer присваивается значение true
      */
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (_numberCounter < _countOpen)
@@ -40,7 +39,6 @@ public class Chest : MonoBehaviour
      * @return  метод SetRandomObject, ChooseTypeBonus
      * переменной _isPlayer приравнивается значение false
      */
-
     private void Open()
     {
         LootSystem.Instance.ChooseTypeBonus(transform.position,_isPlayer, ref _numberCounter, type);
