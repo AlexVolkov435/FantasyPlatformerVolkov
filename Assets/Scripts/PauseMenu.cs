@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,21 +27,21 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume()
+    private void Resume()
     {
         _pauseGameMenu.SetActive(false);
         Time.timeScale = 1.0f;
         _isPause = false;
     }
 
-    public void Pause()
+    private void Pause()
     {
         _pauseGameMenu.SetActive(true);
         Time.timeScale = 0f;
         _isPause = true;
     }
 
-    public void LoadMenue()
+    public void LoadMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");

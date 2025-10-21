@@ -5,10 +5,9 @@ public class LootSystem : MonoBehaviour
     [SerializeField] private HealthPotion healthPotionPrefab;
     [SerializeField] private Coin goldPrefab;
     [SerializeField] private CoinManager coinManager;
-    [SerializeField] private PlayerHealthSystem playerHealthSystem;
     
-    private int positionX = 2;
-    private int positionY = 2;
+    private int _positionX = 2;
+    private int _positionY = 2;
 
     public static LootSystem Instance;
 
@@ -46,7 +45,7 @@ public class LootSystem : MonoBehaviour
      */
     private void AddGoldToScene(Vector3 position)
     {
-        Vector3 positionObject = new Vector2(position.x + positionX, position.y + positionY);
+        Vector3 positionObject = new Vector2(position.x + _positionX, position.y + _positionY);
 
         Instantiate(goldPrefab, positionObject, Quaternion.identity);
     }
@@ -58,7 +57,7 @@ public class LootSystem : MonoBehaviour
      */
     private void AddHealthPotionToScene(Vector3 position)
     {
-        Vector3 positionObject = new Vector2(position.x + positionX, position.y + positionY);
+        Vector3 positionObject = new Vector2(position.x + _positionX, position.y + _positionY);
 
         Instantiate(healthPotionPrefab, positionObject, Quaternion.identity);
     }

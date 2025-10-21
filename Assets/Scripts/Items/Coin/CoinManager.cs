@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    private int _numberOfCoins;
-
+    
     [SerializeField] private TextMeshProUGUI text;
-
+    [SerializeField] private AudioSource clipAudioSource;
+    
+    private int _numberOfCoins;
+    
     private void Start()
     {
         _numberOfCoins = TravelerManager.Instance.CoinsCount;
@@ -22,6 +24,7 @@ public class CoinManager : MonoBehaviour
     public void Add(int coin)
     {
         _numberOfCoins += coin;
+        clipAudioSource.Play();
         TravelerManager.Instance.CoinsCount = _numberOfCoins;
         RefreshCoin();
     }
@@ -33,6 +36,6 @@ public class CoinManager : MonoBehaviour
 
     private void RefreshCoin() 
     {
-        text.text = "Gold " + _numberOfCoins.ToString(); //Обновление поля с монетами
+        text.text = _numberOfCoins.ToString(); //Обновление поля с монетами
     }
 }

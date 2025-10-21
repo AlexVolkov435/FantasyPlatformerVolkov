@@ -70,7 +70,7 @@ public class EnemyHealthSystem : HealthSystem
     public override void TakeDamage(float damage)
     {
         _currentHealth -= damage;
-        
+        clipAudioSource.Play();
        _animator.SetTrigger("Hit");
        
         _damageRendering.ShowDamageText(damage);

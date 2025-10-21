@@ -49,6 +49,7 @@ public class PlayerHealthSystem : HealthSystem
     {
         _currentHealth -= damage;
          slider.value -= damage;
+         clipAudioSource.Play();
          
         _animator.SetTrigger("Hit");
         

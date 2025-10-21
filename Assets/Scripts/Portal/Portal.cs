@@ -1,4 +1,4 @@
-using System;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Portal : MonoBehaviour
@@ -23,4 +23,8 @@ public class Portal : MonoBehaviour
         }
     }
     
+    public void LoadMenue()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
