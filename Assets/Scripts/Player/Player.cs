@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     
     private bool _isFacingLeft;
     private bool _isFacingRight = true;
+    private bool _isTrap;
     
     private int _layerPlatform = 10;
     private int _layerPlayer = 7;
@@ -44,6 +45,23 @@ public class Player : MonoBehaviour
         Move();
         Jump();
         ChooseTurn();
+        
+        if (IsGrounded())
+        {
+            _isTrap = false;
+        }
+    }
+    
+    /*
+     * @param CompareTag("Spike")
+     * @return значение _isTrap
+     */
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Spike"))
+        {
+            _isTrap = true;
+        }
     }
     
     private void Move()
@@ -71,7 +89,6 @@ public class Player : MonoBehaviour
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
             _rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-           
         }
         
         _animator.SetBool("isJump", IsGrounded());

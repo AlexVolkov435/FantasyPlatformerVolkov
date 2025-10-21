@@ -9,7 +9,7 @@ public class CoinManager : MonoBehaviour
 
     private void Start()
     {
-        //_numberOfCoins = TravelerManager.Instance.CoinsCount;
+        _numberOfCoins = TravelerManager.Instance.CoinsCount;
         RefreshCoin();
     }
 
@@ -22,6 +22,7 @@ public class CoinManager : MonoBehaviour
     public void Add(int coin)
     {
         _numberOfCoins += coin;
+        TravelerManager.Instance.CoinsCount = _numberOfCoins;
         RefreshCoin();
     }
 
@@ -33,14 +34,5 @@ public class CoinManager : MonoBehaviour
     private void RefreshCoin() 
     {
         text.text = "Gold " + _numberOfCoins.ToString(); //Обновление поля с монетами
-    }
-
-    /*
-     * Сохранение прогресса
-     * @return записывает в поле прогресса количество монет
-     */
-    public void SaveToProgress()
-    {
-//        TravelerManager.Instance.CoinsCount = _numberOfCoins;
     }
 }

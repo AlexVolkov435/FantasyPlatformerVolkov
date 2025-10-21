@@ -13,7 +13,6 @@ public class SceneLoader : MonoBehaviour
      */
     public void LoadBattleSceneAsync()
     {
-        coinManager.SaveToProgress();
         StartCoroutine(LoadSceneCoroutine());
     }
 
