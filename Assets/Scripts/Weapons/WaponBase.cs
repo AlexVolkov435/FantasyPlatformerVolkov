@@ -5,7 +5,6 @@ public abstract class WeaponBase : MonoBehaviour
     #region Variables
 
     [SerializeField] protected MeleeWeaponData meleeWeaponData;
-    [SerializeField] protected RangeWeaponDate rangeWeaponDate;
 
     //Объявляем интерфейсы
     protected IAttackMelee AttackMeleeBehaviour;
