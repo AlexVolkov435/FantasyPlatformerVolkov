@@ -14,7 +14,7 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.GetComponent<Player>())
         {
             FindObjectOfType<CoinManager>().Add(price);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

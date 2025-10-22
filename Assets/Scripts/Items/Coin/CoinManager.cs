@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private AudioSource clipAudioSource;
     
@@ -20,7 +19,6 @@ public class CoinManager : MonoBehaviour
      * @param количество монет
      * @return сохраняет монеты в переменную_ numberOfCoins, RefreshCoin();
      */
-
     public void Add(int coin)
     {
         _numberOfCoins += coin;
@@ -33,7 +31,6 @@ public class CoinManager : MonoBehaviour
      * Запись в поле с монетами
      * @return записывает в поле интерфейса количество монет
      */
-
     private void RefreshCoin() 
     {
         text.text = _numberOfCoins.ToString(); //Обновление поля с монетами

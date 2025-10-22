@@ -18,7 +18,7 @@ public class LayerCheck : MonoBehaviour
     /*
      * Вызывается при столкновении с тригером
      * @param проверяется первое касание с объектом на котором есть скрипт Ground
-     * @ return передаются в метод GetValue переменные _playerInSpikeTrigger, _isFirstTouch
+     * @return передаются в метод GetValue переменные _playerInSpikeTrigger, _isFirstTouch
      */
     private void OnTriggerEnter2D(Collider2D other)
     {

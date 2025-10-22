@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private const string Horizontal = nameof(Horizontal);
+    
     [SerializeField] private float speed =  3f;
     [SerializeField] private float jumpForce =  8f;
     [SerializeField] private LayerCheck layerCheck;
     [SerializeField] private TextMeshProUGUI textHP;
-    
-    private const string Horizontal = nameof(Horizontal);
     
     private Rigidbody2D _rigidbody2D; 
     private Animator _animator;
@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     
     private bool _isFacingLeft;
     private bool _isFacingRight = true;
-    private bool _isTrap;
     
     private int _layerPlatform = 10;
     private int _layerPlayer = 7;
@@ -33,7 +32,7 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))// спрыгивание с платформы
         {
             GoDownPlatform();
         }
@@ -45,23 +44,6 @@ public class Player : MonoBehaviour
         Move();
         Jump();
         ChooseTurn();
-        
-        if (IsGrounded())
-        {
-            _isTrap = false;
-        }
-    }
-    
-    /*
-     * @param CompareTag("Spike")
-     * @return значение _isTrap
-     */
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.CompareTag("Spike"))
-        {
-            _isTrap = true;
-        }
     }
     
     /*
@@ -121,7 +103,7 @@ public class Player : MonoBehaviour
     /*
      * Метод поворота по направления движения игрока
      * @param вектор localScale для изменения поворота игрока
-     * @return  transform.localScale
+     * @return transform.localScale
      */
     private void Flip()
     {
@@ -133,7 +115,7 @@ public class Player : MonoBehaviour
     
     /*
      * Метод обнуружения земли
-     * @return  инфрмацию о столкновении с землей
+     * @return инфрмацию о столкновении с землей
      */
     private bool IsGrounded()
     {
@@ -142,7 +124,7 @@ public class Player : MonoBehaviour
     
     /*
      * Метод передачи значений в аниматор
-     * @return  значения для аниматора
+     * @return значения для аниматора
      */
     private States State
     {
@@ -153,7 +135,7 @@ public class Player : MonoBehaviour
     /*
      * Метод прохождение платформы насквозь
      * @param ссылка из PlayerInputReader()
-     * @return  игнороируем слои платформы и игрока, чтобы пройти сквозь платформу
+     * @return игнороируем слои платформы и игрока, чтобы пройти сквозь платформу
      */
     public void GoDownPlatform()
     {
@@ -173,6 +155,9 @@ public class Player : MonoBehaviour
         Physics2D.IgnoreLayerCollision(_layerPlatform, _layerPlayer, false);
     }
     
+    /*
+     * Перечисление для аниматора
+     */
     private enum States
     {
         Idle,// 0

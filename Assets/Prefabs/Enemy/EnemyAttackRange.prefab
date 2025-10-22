@@ -112,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 03a5b3c0cede7f541ac6de9e140dbde6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -229,8 +229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56c517692e44c7cbd54b15d7933f136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  clipAudioSourceHit: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 100
 --- !u!114 &8115050169637076340
 MonoBehaviour:
   m_ObjectHideFlags: 0

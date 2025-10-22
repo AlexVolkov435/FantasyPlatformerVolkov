@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeWeaponData: {fileID: 11400000, guid: 9999d416ff3c5e34e98fa01debaeee78, type: 2}
-  rangeWeaponDate: {fileID: 11400000, guid: 348a073afb8ea1b46bd24cb2bd60e689, type: 2}
   attackPoint: {fileID: 1367130574855845172}
   layerMask:
     serializedVersion: 2
@@ -131,7 +130,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: da785ae23be877e4db120b105c0fdf3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -248,8 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56c517692e44c7cbd54b15d7933f136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  clipAudioSourceHit: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 100
 --- !u!114 &8115050169637076340
 MonoBehaviour:
   m_ObjectHideFlags: 0

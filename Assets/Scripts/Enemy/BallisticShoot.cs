@@ -127,6 +127,11 @@ public class BallisticShoot : ShootSystem
         _canShoot = true;
     }
     
+    /*
+     * Расчитываетя угол снаряда в зависимомти от направления противника
+     * @param нулевая переменная angleStart
+     * @return angleStart 
+     */
     private void DetermineAngleProjectile( ref float angleStart)
     {
         if (_enemy.IsFacingRight)

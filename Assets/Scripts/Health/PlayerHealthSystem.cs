@@ -16,13 +16,13 @@ public class PlayerHealthSystem : HealthSystem
     
     private string _deathAnimationName = "Death";
     
-   public float MaxHealth { get { return _maxHealth; } }
-   public float CurrentHealth { get { return _currentHealth; } }
+   public float MaxHealth { get { return maxHealth; } }
+   public float CurrentHealth { get { return currentHealth; } }
    
     private void Awake()
     {
         Initialization();
-        slider.maxValue = _currentHealth;
+        slider.maxValue = currentHealth;
     }
     
     /*
@@ -45,21 +45,26 @@ public class PlayerHealthSystem : HealthSystem
         CalculateDamage(damage);
     }
 
+    /*
+     * Метод расчитывания урона
+     * @param damage Количество урона, наносимого объекту.
+     * @param изменения хп у героя
+     */
     private void CalculateDamage(float damage)
     {
-        _currentHealth -= damage;
+        currentHealth -= damage;
          slider.value -= damage;
-         clipAudioSource.Play();
+         clipAudioSourceHit.Play();
          
         _animator.SetTrigger("Hit");
         
         _damageRendering.ShowDamageText(damage);
      
-        Debug.Log($"Player took {damage} damage. Current health: {_currentHealth}");
+        Debug.Log($"Player took {damage} damage. Current health: {currentHealth}");
         
-        if (_currentHealth <= 0)
+        if (currentHealth <= 0)
         {
-            _currentHealth = 0;
+            currentHealth = 0;
             Die();
         }
     }
@@ -71,15 +76,15 @@ public class PlayerHealthSystem : HealthSystem
      */
     public override void Heal(float amount)
     {
-        _currentHealth += amount;
+        currentHealth += amount;
         slider.value += amount;
         
-        if (_currentHealth > _maxHealth)
+        if (currentHealth > maxHealth)
         {
-            _currentHealth = _maxHealth;
+            currentHealth = maxHealth;
         }
 
-        Debug.Log($"Player healed by {amount}. Current health: {_currentHealth}");
+        Debug.Log($"Player healed by {amount}. Current health: {currentHealth}");
     }
 
     /*

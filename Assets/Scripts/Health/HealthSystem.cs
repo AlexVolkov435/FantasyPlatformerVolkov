@@ -6,9 +6,10 @@ using UnityEngine;
  */
 public abstract class HealthSystem : MonoBehaviour
 {
-    [SerializeField] protected AudioSource clipAudioSource;
-    [SerializeField] protected float _maxHealth;
-    [SerializeField] protected float _currentHealth;
+    [SerializeField] protected AudioSource clipAudioSourceHit;
+    
+    [SerializeField] protected float maxHealth;
+    [SerializeField] protected float currentHealth;
     
     /*
      * Инициализация здоровья при старте.
@@ -16,7 +17,7 @@ public abstract class HealthSystem : MonoBehaviour
      */
     protected virtual void Start()
     {
-        _currentHealth = _maxHealth;
+        currentHealth = maxHealth;
     }
     
     /*

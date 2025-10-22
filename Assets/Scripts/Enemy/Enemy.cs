@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -6,7 +5,6 @@ public class Enemy : MonoBehaviour
     private GameObject _currentPlayer;
     
     public bool IsFacingRight { get; private set; }
-    
     
     private void Start()
     {
@@ -21,9 +19,8 @@ public class Enemy : MonoBehaviour
         ChooseTurn();
     }
     
-
     /* метод выбора направления поворота спрайта
-     * @param _isFacingRight,transform.position.x,player.transform.position.x
+     * @param IsFacingRight,transform.position.x,player.transform.position.x
      * @return Flip
      */
     private void ChooseTurn()
@@ -39,7 +36,7 @@ public class Enemy : MonoBehaviour
     }
     
     /* Метод поворота спрайта
-     * @param _isFacingRight,
+     * @param IsFacingRight,
      * @return transform.localScale
      */
     private void Flip()

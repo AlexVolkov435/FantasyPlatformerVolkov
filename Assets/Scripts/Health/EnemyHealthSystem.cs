@@ -69,17 +69,17 @@ public class EnemyHealthSystem : HealthSystem
     */
     public override void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
-        clipAudioSource.Play();
+        currentHealth -= damage;
+        clipAudioSourceHit.Play();
        _animator.SetTrigger("Hit");
        
         _damageRendering.ShowDamageText(damage);
         
-        Debug.Log($"Enemy took {damage} damage. Current health: {_currentHealth}");
+        Debug.Log($"Enemy took {damage} damage. Current health: {currentHealth}");
         
-        if (_currentHealth <= 0)
+        if (currentHealth <= 0)
         {
-            _currentHealth = 0;
+            currentHealth = 0;
             Die();
         }
     }
@@ -92,14 +92,14 @@ public class EnemyHealthSystem : HealthSystem
      */
     public override void Heal(float amount)
     {
-        _currentHealth += amount;
+        currentHealth += amount;
         
-        if (_currentHealth > _maxHealth)
+        if (currentHealth > maxHealth)
         {
-            _currentHealth = _maxHealth;
+            currentHealth = maxHealth;
         }
         
-        Debug.Log($"Enemy healed by {amount}. Current health: {_currentHealth}");
+        Debug.Log($"Enemy healed by {amount}. Current health: {currentHealth}");
     }
 
     /*

@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-
 
 public class Patrolling : MonoBehaviour
 {
@@ -33,10 +31,7 @@ public class Patrolling : MonoBehaviour
         transform.position = _startPosition; 
         _targetPosition = new Vector3(_startPosition.x + moveDistance, _startPosition.y, _startPosition.z); // Устанавливаем целевую позицию
     }
-
-    /*
-     * 
-     */
+    
     private void Update()
     {
         Move();
@@ -75,13 +70,13 @@ public class Patrolling : MonoBehaviour
                 {
                     _targetPosition = new Vector3(_startPosition.x - moveDistance, _startPosition.y, _startPosition.z);
                     _spriteRenderer.flipX = true;
-                    
                 }
                 else
                 {
                     _targetPosition = new Vector3(_startPosition.x + moveDistance, _startPosition.y, _startPosition.z);
                     _spriteRenderer.flipX = false;
                 }
+                
                 _movingRight = !_movingRight;
             }
         }

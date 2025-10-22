@@ -49,7 +49,7 @@ public class Projectile : MonoBehaviour
     }
 
     /*
-     *  @return уничтожается объект
+     * @return уничтожается объект
      */
     private void DestroyProjectile()
     {
